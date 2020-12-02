@@ -1,0 +1,87 @@
+* SPICE3 file created from dff.ext - technology: min2
+
+.option scale=0.1u
+
+M1000 t2 clk t1 t1 pfet w=10 l=2
++  ad=50 pd=30 as=260 ps=140
+M1001 t8 clk D t1 pfet w=10 l=2
++  ad=60 pd=32 as=50 ps=30
+M1002 t9 t2 t8 t1 pfet w=10 l=2
++  ad=60 pd=32 as=0 ps=0
+M1003 t1 t13 t9 t1 pfet w=10 l=2
++  ad=0 pd=0 as=0 ps=0
+M1004 t13 t8 t1 t1 pfet w=10 l=2
++  ad=60 pd=32 as=0 ps=0
+M1005 t14 t2 t13 t1 pfet w=10 l=2
++  ad=60 pd=32 as=0 ps=0
+M1006 QB clk t14 t1 pfet w=10 l=2
++  ad=100 pd=60 as=0 ps=0
+M1007 t2 clk t3 t3 nfet w=5 l=2
++  ad=25 pd=20 as=135 ps=104
+M1008 t8 t2 D t3 nfet w=5 l=2
++  ad=30 pd=22 as=25 ps=20
+M1009 t9 clk t8 t3 nfet w=5 l=2
++  ad=30 pd=22 as=0 ps=0
+M1010 t3 t13 t9 t3 nfet w=5 l=2
++  ad=0 pd=0 as=0 ps=0
+M1011 t13 t8 t3 t3 nfet w=5 l=2
++  ad=30 pd=22 as=0 ps=0
+M1012 t14 clk t13 t3 nfet w=5 l=2
++  ad=30 pd=22 as=0 ps=0
+M1013 QB t2 t14 t3 nfet w=5 l=2
++  ad=50 pd=40 as=0 ps=0
+M1014 t1 Q QB t1 pfet w=10 l=2
++  ad=0 pd=0 as=0 ps=0
+M1015 a_130_n6# t13 Q t1 pfet w=18 l=2
++  ad=108 pd=48 as=90 ps=46
+M1016 t1 clr a_130_n6# t1 pfet w=18 l=2
++  ad=0 pd=0 as=0 ps=0
+M1017 t3 Q QB t3 nfet w=5 l=2
++  ad=0 pd=0 as=0 ps=0
+M1018 Q t13 t3 t3 nfet w=5 l=2
++  ad=30 pd=22 as=0 ps=0
+M1019 t3 clr Q t3 nfet w=5 l=2
++  ad=0 pd=0 as=0 ps=0
+C0 t9 t8 0.36574fF
+C1 Q t1 0.23304fF
+C2 D t8 0.34021fF
+C3 QB t1 0.23323fF
+C4 t14 t2 0.01688fF
+C5 clr t13 0.07554fF
+C6 Q QB 0.05498fF
+C7 t14 t1 0.03505fF
+C8 D t2 0.04202fF
+C9 t9 t1 0.10881fF
+C10 t13 t8 0.12520fF
+C11 QB t14 0.34021fF
+C12 D t1 0.05563fF
+C13 t13 clk 0.02795fF
+C14 t13 t2 0.06288fF
+C15 clr t1 0.14035fF
+C16 t8 clk 0.02795fF
+C17 Q clr 0.02062fF
+C18 t13 t1 1.23195fF
+C19 t8 t2 0.23084fF
+C20 Q t13 0.02511fF
+C21 clk t2 0.38186fF
+C22 t8 t1 0.53534fF
+C23 QB t13 0.02356fF
+C24 clk t1 0.63620fF
+C25 t14 t13 0.36378fF
+C26 t2 t1 0.87252fF
+C27 t9 t13 0.05498fF
+C28 QB clk 0.01378fF
+C29 t1 t3 0.00527fF
+
+
+.include NMOS-180nm.lib
+.include PMOS-180nm.lib
+v_dd vdd Gnd 5
+v_d D Gnd pulse(0 5 0 0 0 20ns 40ns)
+vc clk Gnd pulse(0 5 0 0 0 15ns 30ns)
+vd clr Gnd pulse(0 5 0 0 0 100ns 110)
+.control
+	tran 0.1ns 45ns
+	plot tran1.D  tran1.clk tran1.Q tran1.Qb
+	
+.endc

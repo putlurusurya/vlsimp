@@ -1,0 +1,16 @@
+timestamp 1606749853
+version 8.1
+tech min2
+style TSMC0.18um(tsmc18)from:t11b
+scale 1000 1 10
+resistclasses 6700 7500 929000 929000 1 7700 7700 80 80 80 70 70 40
+node "out" 23 169.361 3 1 ndif 25 20 50 30 0 0 0 0 0 0 0 0 0 0 248 132 0 0 0 0 0 0 0 0 0 0
+node "a" 231 203.552 -3 16 pc 0 0 0 0 0 0 0 0 0 0 136 132 0 0 20 18 0 0 0 0 0 0 0 0 0 0
+node "vdd" 1464 969.76 -12 24 nw 32 32 50 30 1276 146 0 0 0 0 0 0 0 0 206 88 0 0 0 0 0 0 0 0 0 0
+substrate "Gnd" 0 0 -11 -7 poc 25 20 32 32 0 0 0 0 0 0 0 0 0 0 186 78 0 0 0 0 0 0 0 0 0 0
+cap "vdd" "a" 184816
+cap "vdd" "out" 259287
+cap "a" "out" 54984
+device mosfet nfet 1 1 2 2 2 5 "Gnd" "a" 4 0 "Gnd" 5 0 "out" 5 0
+device mosfet pfet 1 47 2 48 2 10 "vdd" "a" 4 0 "vdd" 10 0 "out" 10 0
+subcap "out" -81460.5

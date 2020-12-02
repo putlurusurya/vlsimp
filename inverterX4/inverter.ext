@@ -1,0 +1,27 @@
+timestamp 1606880339
+version 8.1
+tech min2
+style TSMC0.18um(tsmc18)from:t11b
+scale 1000 1 10
+resistclasses 6700 7500 929000 929000 1 7700 7700 80 80 80 70 70 40
+node "a_13_3#" 11 0 13 3 ndif 15 16 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "a_8_3#" 11 0 8 3 ndif 15 16 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "a_3_3#" 11 0 3 3 ndif 15 16 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "out" 23 108.65 18 3 ndif 25 20 50 30 0 0 0 0 0 0 0 0 0 0 232 124 0 0 0 0 0 0 0 0 0 0
+node "a_13_45#" 25 0 13 45 pdif 0 0 30 26 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "a_8_45#" 25 0 8 45 pdif 0 0 30 26 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "a_3_45#" 25 0 3 45 pdif 0 0 30 26 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "a" 948 710.57 -3 16 pc 0 0 0 0 0 0 0 0 0 0 532 516 0 0 20 18 0 0 0 0 0 0 0 0 0 0
+node "vdd" 984 1471.36 -12 24 nw 32 32 50 30 1936 176 0 0 0 0 0 0 0 0 304 122 0 0 0 0 0 0 0 0 0 0
+substrate "Gnd" 0 0 -11 -7 poc 25 20 32 32 0 0 0 0 0 0 0 0 0 0 284 112 0 0 0 0 0 0 0 0 0 0
+cap "out" "vdd" 147029
+cap "a" "vdd" 791704
+device mosfet nfet 16 3 17 4 2 5 "Gnd" "a" 4 0 "a_13_3#" 5 0 "out" 5 0
+device mosfet nfet 11 3 12 4 2 5 "Gnd" "a" 4 0 "a_8_3#" 5 0 "a_13_3#" 5 0
+device mosfet nfet 6 3 7 4 2 5 "Gnd" "a" 4 0 "a_3_3#" 5 0 "a_8_3#" 5 0
+device mosfet nfet 1 3 2 4 2 5 "Gnd" "a" 4 0 "Gnd" 5 0 "a_3_3#" 5 0
+device mosfet pfet 16 45 17 46 2 10 "vdd" "a" 4 0 "a_13_45#" 10 0 "out" 10 0
+device mosfet pfet 11 45 12 46 2 10 "vdd" "a" 4 0 "a_8_45#" 10 0 "a_13_45#" 10 0
+device mosfet pfet 6 45 7 46 2 10 "vdd" "a" 4 0 "a_3_45#" 10 0 "a_8_45#" 10 0
+device mosfet pfet 1 45 2 46 2 10 "vdd" "a" 4 0 "vdd" 10 0 "a_3_45#" 10 0
+subcap "out" -28538.4

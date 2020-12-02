@@ -1,0 +1,62 @@
+* SPICE3 file created from dlatch.ext - technology: min2
+
+.option scale=0.1u
+
+M1000 Q clk_b D vdd pfet w=14 l=2
++  ad=84 pd=40 as=70 ps=38
+M1001 a_25_17# clk Q vdd pfet w=14 l=2
++  ad=97 pd=44 as=0 ps=0
+M1002 vdd Q_b a_25_17# vdd pfet w=9 l=2
++  ad=79 pd=40 as=0 ps=0
+M1003 Q_b Q vdd vdd pfet w=14 l=2
++  ad=70 pd=38 as=0 ps=0
+M1004 Q clk D Gnd nfet w=7 l=2
++  ad=42 pd=26 as=35 ps=24
+M1005 a_25_17# clk_b Q Gnd nfet w=7 l=2
++  ad=50 pd=30 as=0 ps=0
+M1006 Gnd Q_b a_25_17# Gnd nfet w=5 l=2
++  ad=40 pd=26 as=0 ps=0
+M1007 Q_b Q Gnd Gnd nfet w=7 l=2
++  ad=35 pd=24 as=0 ps=0
+C0 vdd a_25_17# 0.12197fF
+C1 vdd Q_b 0.31672fF
+C2 Q D 0.36083fF
+C3 Q a_25_17# 0.38832fF
+C4 Q Q_b 0.09740fF
+C5 a_25_17# Q_b 0.06873fF
+C6 vdd clk 0.48273fF
+C7 vdd clk_b 0.14037fF
+C8 clk clk_b 0.08148fF
+C9 vdd Q 0.56880fF
+C10 clk Q 0.04400fF
+C11 vdd D 0.05508fF
+C12 clk D 0.01238fF
+C13 clk_b Q 0.02138fF
+
+.include NMOS-180nm.lib
+.include PMOS-180nm.lib
+
+
+v_dd vdd Gnd 1.8
+v_d D Gnd pulse(0 1.8 0 1ns 1ns 175ns 350ns)
+
+v1 clk_b Gnd pulse(0 1.8 0 1ns 1ns 150ns 300ns)
+
+v2 clk Gnd pulse(1.8 0 0 1ns 1ns 150ns 300ns)
+.control
+	tran 0.1ns 600ns
+	
+	plot tran1.Q tran1.D tran1.clk
+	
+	meas tran risetime  trig Q val=0.18 RISE=2 TARG Q val=1.62 RISE=1
+
+	meas tran falltime  trig Q val=1.62  FALL=1 TARG Q val=0.18 FALL=2
+	
+	meas tran clk2qlh trig clk val=0.9 RISE=1 TARG Q val=0.9 RISE=1
+	
+	meas tran clk2qhl trig D val=0.9 FALL=1 TARG Q val=0.9 FALL=1
+	
+	let x= -tran1.v_dd#branch
+        
+        plot vdd*x
+.endc

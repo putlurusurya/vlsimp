@@ -1,0 +1,89 @@
+* SPICE3 file created from dff.ext - technology: min2
+
+.option scale=0.1u
+.include NMOS-180nm.lib
+.include PMOS-180nm.lib
+
+M1000 a_15_18# clk_b D vdd pfet w=14 l=2
++  ad=84 pd=40 as=70 ps=38
+M1001 a_23_18# clk a_15_18# vdd pfet w=14 l=2
++  ad=111 pd=46 as=0 ps=0
+M1002 vdd Q_b a_23_18# vdd pfet w=9 l=2
++  ad=176 pd=84 as=0 ps=0
+M1003 Q_b a_15_18# vdd vdd pfet w=14 l=2
++  ad=84 pd=40 as=0 ps=0
+M1004 a_51_18# clk Q_b vdd pfet w=14 l=2
++  ad=84 pd=40 as=0 ps=0
+M1005 a_59_18# clk_b a_51_18# vdd pfet w=14 l=2
++  ad=125 pd=48 as=0 ps=0
+M1006 vdd Q a_59_18# vdd pfet w=9 l=2
++  ad=0 pd=0 as=0 ps=0
+M1007 Q a_51_18# vdd vdd pfet w=14 l=2
++  ad=70 pd=38 as=0 ps=0
+M1008 a_15_18# clk D Gnd nfet w=7 l=2
++  ad=42 pd=26 as=35 ps=24
+M1009 a_23_18# clk_b a_15_18# Gnd nfet w=7 l=2
++  ad=57 pd=32 as=0 ps=0
+M1010 Gnd Q_b a_23_18# Gnd nfet w=5 l=2
++  ad=90 pd=56 as=0 ps=0
+M1011 Q_b a_15_18# Gnd Gnd nfet w=7 l=2
++  ad=42 pd=26 as=0 ps=0
+M1012 a_51_18# clk_b Q_b Gnd nfet w=7 l=2
++  ad=42 pd=26 as=0 ps=0
+M1013 a_59_18# clk a_51_18# Gnd nfet w=7 l=2
++  ad=64 pd=34 as=0 ps=0
+M1014 Gnd Q a_59_18# Gnd nfet w=5 l=2
++  ad=0 pd=0 as=0 ps=0
+M1015 Q a_51_18# Gnd Gnd nfet w=7 l=2
++  ad=35 pd=24 as=0 ps=0
+C0 Q a_59_18# 0.06873fF
+C1 a_51_18# clk_b 0.01688fF
+C2 vdd Q 0.31916fF
+C3 a_15_18# clk_b 0.07803fF
+C4 vdd a_59_18# 0.10630fF
+C5 vdd Q_b 0.30469fF
+C6 Q_b a_23_18# 0.06873fF
+C7 Q a_51_18# 0.08391fF
+C8 vdd a_23_18# 0.10630fF
+C9 vdd clk 0.85139fF
+C10 a_59_18# a_51_18# 0.25430fF
+C11 vdd D 0.05118fF
+C12 Q_b a_51_18# 0.34021fF
+C13 vdd a_51_18# 0.53958fF
+C14 Q_b a_15_18# 0.08391fF
+C15 clk a_51_18# 0.01575fF
+C16 vdd a_15_18# 0.51822fF
+C17 Q_b clk_b 0.01511fF
+C18 a_23_18# a_15_18# 0.30241fF
+C19 clk a_15_18# 0.19508fF
+C20 vdd clk_b 0.30737fF
+C21 D a_15_18# 0.34021fF
+C22 clk clk_b 0.39205fF
+C23 vdd Gnd 0.00314fF
+
+
+v_dd vdd Gnd 1.8
+v_d D Gnd pulse( 1.8 0 149.06ns 0 0 150ns 300ns)
+
+v1 clk Gnd pulse(0 1.8 0 0 0 100ns 200ns)
+
+v2 clk_b Gnd pulse(1.8 0 0 0 0 100ns 200ns)
+.control
+	tran 0.1ns 1200ns
+	
+	plot tran1.Q tran1.D 
+	plot tran1.clk
+	
+	meas tran risetime  trig Q val=0.18 RISE=1 TARG Q val=1.62 RISE=1
+
+	meas tran falltime  trig Q val=1.62  FALL=1 TARG Q val=0.18 FALL=1
+	
+	meas tran clk2qlh trig clk val=0.9 FALL=2 TARG Q val=0.9 RISE=1
+	
+	meas tran clk2qhl trig D val=0.9 FALL=1 TARG Q val=0.9 FALL=1
+	
+	let x= -tran1.v_dd#branch
+        
+       
+.endc
+*SETUP TIME 34ps

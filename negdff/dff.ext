@@ -1,0 +1,55 @@
+timestamp 1606890281
+version 8.1
+tech min2
+style TSMC0.18um(tsmc18)from:t11b
+scale 1000 1 10
+resistclasses 6700 7500 929000 929000 1 7700 7700 80 80 80 70 70 40
+node "clk" 2 212.183 12 6 m2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 515 216 0 0 0 0 0 0 0 0
+node "Q" 156 184.844 69 16 p 35 24 70 38 0 0 0 0 0 0 83 78 0 0 188 96 0 0 0 0 0 0 0 0 0 0
+node "a_59_18#" 30 49.1546 59 18 ndif 64 34 125 48 0 0 0 0 0 0 0 0 0 0 132 74 0 0 0 0 0 0 0 0 0 0
+node "Q_b" 151 189.589 32 16 p 42 26 84 40 0 0 0 0 0 0 83 78 0 0 192 98 0 0 0 0 0 0 0 0 0 0
+node "a_23_18#" 32 49.1546 23 18 ndif 57 32 111 46 0 0 0 0 0 0 0 0 0 0 132 74 0 0 0 0 0 0 0 0 0 0
+node "D" 31 32.268 8 18 ndif 35 24 70 38 0 0 0 0 0 0 0 0 0 0 140 78 0 0 0 0 0 0 0 0 0 0
+node "a_51_18#" 253 90.494 51 18 ndif 42 26 84 40 0 0 0 0 0 0 126 126 0 0 213 124 0 0 0 0 0 0 0 0 0 0
+node "clk_b" 524 467.696 8 54 p 0 0 0 0 0 0 0 0 0 0 272 276 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "vdd" 2824 3233.85 0 31 nw 206 156 260 124 4136 276 0 0 0 0 307 302 0 0 995 422 0 0 0 0 0 0 0 0 0 0
+substrate "Gnd" 0 0 1 0 poc 90 56 80 80 0 0 0 0 0 0 104 100 0 0 728 284 0 0 0 0 0 0 0 0 0 0
+cap "clk" "vdd" 194.753
+cap "a_23_18#" "clk" 12.768
+cap "a_59_18#" "vdd" 106.298
+cap "clk" "clk_b" 48.46
+cap "a_51_18#" "a_59_18#" 254.301
+cap "Q" "vdd" 319.164
+cap "a_51_18#" "Q" 83.9092
+cap "a_23_18#" "vdd" 408.71
+cap "a_59_18#" "Q" 68.73
+cap "a_51_18#" "vdd" 555.327
+cap "vdd" "clk_b" 449.608
+cap "Q_b" "vdd" 388.605
+cap "a_23_18#" "Q_b" 68.73
+cap "D" "vdd" 391.396
+cap "a_51_18#" "clk_b" 16.876
+cap "a_51_18#" "Q_b" 340.214
+cap "Q_b" "clk_b" 15.108
+device mosfet nfet 78 18 79 19 2 7 "Gnd" "a_51_18#" 4 0 "Gnd" 7 0 "Q" 7 0
+device mosfet nfet 69 18 70 19 2 5 "Gnd" "Q" 4 0 "a_59_18#" 5 0 "Gnd" 5 0
+device mosfet nfet 57 18 58 19 2 7 "Gnd" "Gnd" 4 0 "a_51_18#" 7 0 "a_59_18#" 7 0
+device mosfet nfet 49 18 50 19 2 7 "Gnd" "clk_b" 4 0 "Q_b" 7 0 "a_51_18#" 7 0
+device mosfet nfet 41 18 42 19 2 7 "Gnd" "vdd" 4 0 "Gnd" 7 0 "Q_b" 7 0
+device mosfet nfet 32 18 33 19 2 5 "Gnd" "Q_b" 4 0 "a_23_18#" 5 0 "Gnd" 5 0
+device mosfet nfet 21 18 22 19 2 7 "Gnd" "clk_b" 4 0 "vdd" 7 0 "a_23_18#" 7 0
+device mosfet nfet 13 18 14 19 2 7 "Gnd" "Gnd" 4 0 "D" 7 0 "vdd" 7 0
+device mosfet pfet 78 39 79 40 2 14 "vdd" "a_51_18#" 4 0 "vdd" 14 0 "Q" 14 0
+device mosfet pfet 69 39 70 40 2 9 "vdd" "Q" 4 0 "a_59_18#" 9 0 "vdd" 9 0
+device mosfet pfet 57 39 58 40 2 14 "vdd" "clk_b" 4 0 "a_51_18#" 14 0 "a_59_18#" 14 0
+device mosfet pfet 49 39 50 40 2 14 "vdd" "vdd" 4 0 "Q_b" 14 0 "a_51_18#" 14 0
+device mosfet pfet 41 39 42 40 2 14 "vdd" "vdd" 4 0 "vdd" 14 0 "Q_b" 14 0
+device mosfet pfet 32 39 33 40 2 9 "vdd" "Q_b" 4 0 "a_23_18#" 9 0 "vdd" 9 0
+device mosfet pfet 21 39 22 40 2 14 "vdd" "vdd" 4 0 "vdd" 14 0 "a_23_18#" 14 0
+device mosfet pfet 13 39 14 40 2 14 "vdd" "clk_b" 4 0 "D" 14 0 "vdd" 14 0
+subcap "clk" -164.868
+subcap "Q" -74.6101
+subcap "a_59_18#" -23.5646
+subcap "Q_b" -64.8026
+subcap "a_23_18#" -23.5646
+subcap "a_51_18#" -62.508

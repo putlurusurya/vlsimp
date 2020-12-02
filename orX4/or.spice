@@ -1,0 +1,65 @@
+* SPICE3 file created from or.ext - technology: min2
+
+.option scale=0.1u
+
+M1000 a_n21_47# a_n23_n1# out vdd pfet w=10 l=2
++  ad=30 pd=26 as=60 ps=32
+M1001 a_n16_47# a_n23_n1# a_n21_47# vdd pfet w=10 l=2
++  ad=30 pd=26 as=0 ps=0
+M1002 a_n11_47# a_n23_n1# a_n16_47# vdd pfet w=10 l=2
++  ad=30 pd=26 as=0 ps=0
+M1003 vdd a_n23_n1# a_n11_47# vdd pfet w=10 l=2
++  ad=70 pd=34 as=0 ps=0
+M1004 a_3_47# a vdd vdd pfet w=10 l=2
++  ad=70 pd=34 as=0 ps=0
+M1005 a_n23_n1# b a_3_47# vdd pfet w=10 l=2
++  ad=60 pd=32 as=0 ps=0
+M1006 a_n21_1# a_n23_n1# out Gnd nfet w=5 l=2
++  ad=15 pd=16 as=30 ps=22
+M1007 a_n16_1# a_n23_n1# a_n21_1# Gnd nfet w=5 l=2
++  ad=15 pd=16 as=0 ps=0
+M1008 a_n11_1# a_n23_n1# a_n16_1# Gnd nfet w=5 l=2
++  ad=15 pd=16 as=0 ps=0
+M1009 Gnd a_n23_n1# a_n11_1# Gnd nfet w=5 l=2
++  ad=65 pd=46 as=0 ps=0
+M1010 a_n23_n1# a Gnd Gnd nfet w=5 l=2
++  ad=35 pd=24 as=0 ps=0
+M1011 Gnd b a_n23_n1# Gnd nfet w=5 l=2
++  ad=0 pd=0 as=0 ps=0
+C0 vdd b 0.23295fF
+C1 a_n23_n1# b 0.12341fF
+C2 a vdd 0.23295fF
+C3 a a_n23_n1# 0.25431fF
+C4 vdd out 0.17125fF
+C5 a b 0.20419fF
+C6 vdd a_n23_n1# 1.00243fF
+C7 vdd Gnd 0.00211fF
+
+
+.include NMOS-180nm.lib
+.include PMOS-180nm.lib
+
+
+v_dd vdd Gnd 1.8
+v_d a Gnd pulse( 1.8 0 0 1ns 1ns 50ns 100ns)
+
+v1 b Gnd pulse(1.8 0 0 1ns 1ns 100ns 200ns)
+
+.control
+	tran 0.1ns 200ns
+	
+	plot tran1.a tran1.b tran1.out
+	
+	meas tran risetime  trig out val=0.18 RISE=1 TARG out val=1.62 RISE=1
+
+	meas tran falltime  trig out val=1.62  FALL=1 TARG out val=0.18 FALL=1
+	
+	meas tran tplh trig a val=0.9 RISE=1 TARG out val=0.9 RISE=1
+	
+	meas tran tphl trig a val=0.9 FALL=1 TARG out val=0.9 FALL=1
+	
+	let x= -tran1.v_dd#branch
+        
+        plot vdd*x	   
+	    
+.endc

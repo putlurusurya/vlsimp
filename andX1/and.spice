@@ -1,0 +1,55 @@
+* SPICE3 file created from and.ext - technology: min2
+
+.option scale=0.1u
+
+M1000 vdd a_n8_n1# out vdd pfet w=10 l=2
++  ad=120 pd=64 as=60 ps=32
+M1001 a_n8_n1# a vdd vdd pfet w=10 l=2
++  ad=70 pd=34 as=0 ps=0
+M1002 vdd b a_n8_n1# vdd pfet w=10 l=2
++  ad=0 pd=0 as=0 ps=0
+M1003 Gnd a_n8_n1# out Gnd nfet w=5 l=2
++  ad=35 pd=24 as=30 ps=22
+M1004 a_3_1# a Gnd Gnd nfet w=5 l=2
++  ad=35 pd=24 as=0 ps=0
+M1005 a_n8_n1# b a_3_1# Gnd nfet w=5 l=2
++  ad=25 pd=20 as=0 ps=0
+C0 a out 23.56fF
+C1 vdd b 184.82fF
+C2 vdd out 226.23fF
+C3 a_n8_n1# a 229.79fF
+C4 a_n8_n1# b 71.86fF
+C5 vdd a_n8_n1# 565.09fF
+C6 a_n8_n1# out 41.24fF
+C7 a b 162.95fF
+C8 vdd a 184.82fF
+
+.include NMOS-180nm.lib
+.include PMOS-180nm.lib
+.options method=gear reltol=0.1m
+
+v_dd vdd Gnd 1.8
+v_d a Gnd pulse( 1.8 0 0 1n 1n 50ns 100ns)
+
+v1 b Gnd pulse( 1.8 0 0 1n 1n 100ns 200ns)
+
+
+.control
+	tran 0.1ns 200ns
+	
+	plot tran1.a tran1.b tran1.out
+	
+	meas tran risetime  trig out val=0.18 RISE=1 TARG out val=1.62 RISE=1
+
+	meas tran falltime  trig out val=1.62  FALL=1 TARG out val=0.18 FALL=1
+	
+	meas tran tplh trig a val=0.9 RISE=2 TARG out val=0.9 RISE=1
+	
+	meas tran tphl trig a val=0.9 FALL=1 TARG out val=0.9 FALL=1
+	
+	let x= -tran1.v_dd#branch
+        
+        plot vdd*x	   
+	    
+.endc
+

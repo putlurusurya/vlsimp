@@ -1,0 +1,50 @@
+timestamp 1606922355
+version 8.1
+tech min2
+style TSMC0.18um(tsmc18)from:t11b
+scale 1000 1 10
+resistclasses 6700 7500 929000 929000 1 7700 7700 80 80 80 70 70 40
+node "a_n28_1#" 11 0 -28 1 ndif 15 16 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "a_n33_1#" 11 0 -33 1 ndif 15 16 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "a_n38_1#" 11 0 -38 1 ndif 15 16 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "a_3_47#" 11 0 3 47 pdif 0 0 70 34 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "a_n28_47#" 25 0 -28 47 pdif 0 0 30 26 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "a_n33_47#" 25 0 -33 47 pdif 0 0 30 26 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "a_n38_47#" 25 0 -38 47 pdif 0 0 30 26 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "out" 23 131.754 -45 1 ndif 25 20 50 30 0 0 0 0 0 0 0 0 0 0 224 120 0 0 0 0 0 0 0 0 0 0
+node "b" 231 151.526 6 28 pc 0 0 0 0 0 0 0 0 0 0 136 132 0 0 20 18 0 0 0 0 0 0 0 0 0 0
+node "a" 231 151.526 -3 34 pc 0 0 0 0 0 0 0 0 0 0 136 132 0 0 20 18 0 0 0 0 0 0 0 0 0 0
+node "a_n8_n1#" 257 426.827 -8 -1 p 35 24 50 30 0 0 0 0 0 0 132 130 0 0 291 160 0 0 0 0 0 0 0 0 0 0
+node "a_n40_n1#" 895 831.615 -40 -1 p 30 22 60 32 0 0 0 0 0 0 546 502 0 0 256 136 0 0 0 0 0 0 0 0 0 0
+node "vdd" 1705 2633.4 -52 24 nw 48 48 120 64 3465 244 0 0 0 0 0 0 0 0 514 198 0 0 0 0 0 0 0 0 0 0
+substrate "Gnd" 0 0 -23 1 ndif 85 64 48 48 0 0 0 0 0 0 0 0 0 0 498 190 0 0 0 0 0 0 0 0 0 0
+cap "out" "vdd" 160125
+cap "a_n40_n1#" "a_n8_n1#" 54984
+cap "vdd" "a_n8_n1#" 339379
+cap "a_n40_n1#" "vdd" 1093500
+cap "b" "a_n8_n1#" 7186
+cap "a" "a_n8_n1#" 189539
+cap "a_n40_n1#" "a" 27492
+cap "vdd" "b" 236842
+cap "vdd" "a" 236842
+cap "b" "a" 162951
+device mosfet nfet 10 1 11 2 2 5 "Gnd" "b" 4 0 "a_n8_n1#" 5 0 "Gnd" 5 0
+device mosfet nfet 1 1 2 2 2 5 "Gnd" "a" 4 0 "Gnd" 5 0 "a_n8_n1#" 5 0
+device mosfet nfet -8 1 -7 2 2 5 "Gnd" "a_n8_n1#" 4 0 "a_n40_n1#" 5 0 "Gnd" 5 0
+device mosfet nfet -25 1 -24 2 2 5 "Gnd" "a_n40_n1#" 4 0 "a_n28_1#" 5 0 "Gnd" 5 0
+device mosfet nfet -30 1 -29 2 2 5 "Gnd" "a_n40_n1#" 4 0 "a_n33_1#" 5 0 "a_n28_1#" 5 0
+device mosfet nfet -35 1 -34 2 2 5 "Gnd" "a_n40_n1#" 4 0 "a_n38_1#" 5 0 "a_n33_1#" 5 0
+device mosfet nfet -40 1 -39 2 2 5 "Gnd" "a_n40_n1#" 4 0 "out" 5 0 "a_n38_1#" 5 0
+device mosfet pfet 10 47 11 48 2 10 "vdd" "b" 4 0 "a_3_47#" 10 0 "a_n8_n1#" 10 0
+device mosfet pfet 1 47 2 48 2 10 "vdd" "a" 4 0 "vdd" 10 0 "a_3_47#" 10 0
+device mosfet pfet -8 47 -7 48 2 10 "vdd" "a_n8_n1#" 4 0 "a_n40_n1#" 10 0 "vdd" 10 0
+device mosfet pfet -25 47 -24 48 2 10 "vdd" "a_n40_n1#" 4 0 "a_n28_47#" 10 0 "vdd" 10 0
+device mosfet pfet -30 47 -29 48 2 10 "vdd" "a_n40_n1#" 4 0 "a_n33_47#" 10 0 "a_n28_47#" 10 0
+device mosfet pfet -35 47 -34 48 2 10 "vdd" "a_n40_n1#" 4 0 "a_n38_47#" 10 0 "a_n33_47#" 10 0
+device mosfet pfet -40 47 -39 48 2 10 "vdd" "a_n40_n1#" 4 0 "out" 10 0 "a_n38_47#" 10 0
+subcap "out" -51645
+subcap "b" -137830
+subcap "a" -4500
+subcap "a_n8_n1#" -174024
+subcap "a_n40_n1#" -124532
+subcap "Gnd" -144741

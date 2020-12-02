@@ -1,0 +1,94 @@
+timestamp 1606749416
+version 8.1
+tech min2
+style TSMC0.18um(tsmc18)from:t11b
+scale 1000 1 10
+resistclasses 6700 7500 929000 929000 1 7700 7700 80 80 80 70 70 40
+node "a_130_n6#" 23 0 130 -6 pdif 0 0 108 48 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+node "t25" 191 228.847 101 -29 p 30 22 90 46 0 0 0 0 0 0 96 92 0 0 232 140 0 0 0 0 0 0 0 0 0 0
+equiv "t25" "t23"
+equiv "t25" "Q"
+node "t19" 92 127.732 73 -26 ndif 50 40 100 60 0 0 0 0 0 0 0 0 0 0 330 186 0 0 0 0 0 0 0 0 0 0
+equiv "t19" "t17"
+equiv "t19" "t21"
+equiv "t19" "t18"
+equiv "t19" "QB"
+node "t16" 21 35.046 65 -26 ndif 30 22 60 32 0 0 0 0 0 0 0 0 0 0 132 74 0 0 0 0 0 0 0 0 0 0
+equiv "t16" "t14"
+node "t11" 21 59.7888 40 -26 ndif 30 22 60 32 0 0 0 0 0 0 0 0 0 0 132 74 0 0 0 0 0 0 0 0 0 0
+equiv "t11" "t9"
+node "t5" 22 40.611 25 -26 ndif 25 20 50 30 0 0 0 0 0 0 0 0 0 0 136 76 0 0 0 0 0 0 0 0 0 0
+equiv "t5" "t7"
+equiv "t5" "D"
+node "clr" 180 122.267 136 -29 p 0 0 0 0 0 0 0 0 0 0 115 108 0 0 32 26 0 0 0 0 0 0 0 0 0 0
+node "t15" 451 271.647 46 -29 p 30 22 60 32 0 0 0 0 0 0 302 264 0 0 312 186 0 0 0 0 0 0 0 0 0 0
+equiv "t15" "t13"
+node "t6" 227 128.808 32 -26 ndif 30 22 60 32 0 0 0 0 0 0 134 124 0 0 206 116 0 0 0 0 0 0 0 0 0 0
+equiv "t6" "t8"
+node "clk" 1028 1016.73 6 -18 pc 0 0 0 0 0 0 0 0 0 0 550 546 0 0 20 18 0 0 0 0 0 0 0 0 0 0
+node "t4" 712 471.557 12 -26 ndif 25 20 50 30 0 0 0 0 0 0 374 370 0 0 140 78 0 0 0 0 0 0 0 0 0 0
+equiv "t4" "t2"
+node "vdd" 3510 5266.8 -1 -12 nw 128 128 260 140 6930 398 0 0 0 0 0 0 0 0 1256 492 0 0 0 0 0 0 0 0 0 0
+equiv "vdd" "t26"
+equiv "vdd" "t22"
+equiv "vdd" "t10"
+equiv "vdd" "t1"
+substrate "t24" 0 0 4 -43 poc 135 104 160 160 0 0 0 0 0 0 0 0 0 0 1188 458 0 0 0 0 0 0 0 0 0 0
+equiv "t24" "t24"
+equiv "t24" "t20"
+equiv "t24" "t12"
+equiv "t24" "t3"
+equiv "t24" "Gnd"
+cap "t6" "t5" 340213
+cap "vdd" "t19" 233232
+cap "t4" "t16" 16876
+cap "vdd" "t16" 35046
+cap "t19" "t16" 340213
+cap "t4" "t5" 42023.5
+cap "vdd" "t11" 108815
+cap "t6" "t15" 125203
+cap "vdd" "t5" 55632
+cap "clk" "t15" 27949.8
+cap "t25" "clr" 20619
+cap "t4" "t15" 62883
+cap "vdd" "clr" 140348
+cap "t25" "t15" 25113
+cap "vdd" "t15" 1231950
+cap "t6" "clk" 27949.8
+cap "t19" "t15" 23564.6
+cap "t6" "t4" 230839
+cap "t16" "t15" 363778
+cap "clk" "t4" 381856
+cap "t6" "vdd" 535339
+cap "t11" "t15" 54984
+cap "clk" "vdd" 636196
+cap "clk" "t19" 13782
+cap "t4" "vdd" 872525
+cap "clr" "t15" 75540
+cap "t6" "t11" 365742
+cap "vdd" "t25" 233040
+cap "t25" "t19" 54984
+device mosfet nfet 136 -26 137 -25 2 5 "t24" "clr" 4 0 "t25" 5 0 "t24" 5 0
+device mosfet nfet 128 -26 129 -25 2 5 "t24" "t15" 4 0 "t24" 5 0 "t25" 5 0
+device mosfet nfet 101 -26 102 -25 2 5 "t24" "t25" 4 0 "t19" 5 0 "t24" 5 0
+device mosfet pfet 136 -6 137 -5 2 18 "vdd" "clr" 4 0 "a_130_n6#" 18 0 "vdd" 18 0
+device mosfet pfet 128 -6 129 -5 2 18 "vdd" "t15" 4 0 "t25" 18 0 "a_130_n6#" 18 0
+device mosfet pfet 101 -1 102 0 2 10 "vdd" "t25" 4 0 "t19" 10 0 "vdd" 10 0
+device mosfet nfet 71 -26 72 -25 2 5 "t24" "t4" 4 0 "t16" 5 0 "t19" 5 0
+device mosfet nfet 63 -26 64 -25 2 5 "t24" "clk" 4 0 "t15" 5 0 "t16" 5 0
+device mosfet nfet 55 -26 56 -25 2 5 "t24" "t6" 4 0 "t24" 5 0 "t15" 5 0
+device mosfet nfet 46 -26 47 -25 2 5 "t24" "t15" 4 0 "t11" 5 0 "t24" 5 0
+device mosfet nfet 38 -26 39 -25 2 5 "t24" "clk" 4 0 "t6" 5 0 "t11" 5 0
+device mosfet nfet 30 -26 31 -25 2 5 "t24" "t4" 4 0 "t5" 5 0 "t6" 5 0
+device mosfet nfet 10 -26 11 -25 2 5 "t24" "clk" 4 0 "t24" 5 0 "t4" 5 0
+device mosfet pfet 71 -1 72 0 2 10 "vdd" "clk" 4 0 "t16" 10 0 "t19" 10 0
+device mosfet pfet 63 -1 64 0 2 10 "vdd" "t4" 4 0 "t15" 10 0 "t16" 10 0
+device mosfet pfet 55 -1 56 0 2 10 "vdd" "t6" 4 0 "vdd" 10 0 "t15" 10 0
+device mosfet pfet 46 -1 47 0 2 10 "vdd" "t15" 4 0 "t11" 10 0 "vdd" 10 0
+device mosfet pfet 38 -1 39 0 2 10 "vdd" "t4" 4 0 "t6" 10 0 "t11" 10 0
+device mosfet pfet 30 -1 31 0 2 10 "vdd" "clk" 4 0 "t5" 10 0 "t6" 10 0
+device mosfet pfet 10 -1 11 0 2 10 "vdd" "clk" 4 0 "vdd" 10 0 "t4" 10 0
+subcap "t19" -11722.5
+subcap "t11" -24742.8
+subcap "t15" -117758
+subcap "t4" -30928.5

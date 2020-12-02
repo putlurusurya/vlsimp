@@ -1,0 +1,51 @@
+* SPICE3 file created from inverter.ext - technology: min2
+
+.option scale=0.1u
+
+M1000 a_3_45# a vdd vdd pfet w=10 l=2
++  ad=30 pd=26 as=50 ps=30
+M1001 a_8_45# a a_3_45# vdd pfet w=10 l=2
++  ad=30 pd=26 as=0 ps=0
+M1002 a_13_45# a a_8_45# vdd pfet w=10 l=2
++  ad=30 pd=26 as=0 ps=0
+M1003 out a a_13_45# vdd pfet w=10 l=2
++  ad=50 pd=30 as=0 ps=0
+M1004 a_3_3# a Gnd Gnd nfet w=5 l=2
++  ad=15 pd=16 as=25 ps=20
+M1005 a_8_3# a a_3_3# Gnd nfet w=5 l=2
++  ad=15 pd=16 as=0 ps=0
+M1006 a_13_3# a a_8_3# Gnd nfet w=5 l=2
++  ad=15 pd=16 as=0 ps=0
+M1007 out a a_13_3# Gnd nfet w=5 l=2
++  ad=25 pd=20 as=0 ps=0
+C0 vdd out 0.14703fF
+C1 vdd a 0.79170fF
+
+
+.include NMOS-180nm.lib
+.include PMOS-180nm.lib
+v1 vdd Gnd 1.8
+vin1 a Gnd pulse(0 1.8 0 1n 1n 20n 50n)
+
+.tran 5n 200n
+
+.control
+run
+plot V(a)  V(out)
+
+meas tran risetime  trig out val=0.18 RISE=1 TARG out val=1.62 RISE=1
+
+meas tran falltime  trig out val=1.62  FALL=1 TARG out val=0.18 FALL=1
+
+meas tran tplh trig a val=0.9  FALL=1 TARG out val=0.9 RISE=1
+
+meas tran tphl trig a val=0.9  RISE=1 TARG out val=0.9 FALL=1
+
+
+
+
+let x= -tran1.v1#branch
+        
+        plot vdd*x
+        
+.endc

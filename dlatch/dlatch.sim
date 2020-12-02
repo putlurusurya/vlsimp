@@ -1,0 +1,31 @@
+| units: 10 tech: min2 format: MIT
+p clk_b D Q 2 14 15 40
+p clk Q a_25_17# 2 14 23 40
+p Q_b a_25_17# vdd 2 9 33 40
+p Q vdd Q_b 2 14 41 40
+n clk D Q 2 7 15 17
+n clk_b Q a_25_17# 2 7 23 17
+n Q_b a_25_17# Gnd 2 5 33 17
+n Q Gnd Q_b 2 7 41 17
+C a_25_17# Q_b 0.06873
+C vdd clk 0.48273
+C vdd clk_b 0.14037
+C vdd Q 0.56880
+C clk clk_b 0.08148
+C clk Q 0.04400
+C vdd D 0.05508
+C vdd a_25_17# 0.12197
+C clk D 0.01238
+C clk_b Q 0.02138
+C vdd Q_b 0.31672
+C Q D 0.36083
+C Q a_25_17# 0.38832
+C Q Q_b 0.09740
+R Q_b 166
+R a_25_17# 34
+R D 31
+R Q 257
+R clk_b 189
+R clk 501
+R vdd 1299
+R Gnd 146
